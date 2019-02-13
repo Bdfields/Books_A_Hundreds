@@ -1,4 +1,4 @@
-package model
+package models
 
 type Book struct {
 	Isbn  string `json:"isbn"`
