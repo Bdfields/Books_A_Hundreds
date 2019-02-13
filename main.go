@@ -1,6 +1,7 @@
 package main
 
 import (
+	model "Books_A_Hundreds/models"
 	"encoding/json"
 	"fmt"
 	"log"
@@ -9,19 +10,12 @@ import (
 	"github.com/gorilla/mux"
 )
 
-type Book struct {
-	Isbn  string `json:"isbn"`
-	Title string `json:"title"`
-}
-
-type Books []Book
-
 func returnAllBooks(w http.ResponseWriter, r *http.Request) {
-	books := Books{
-		Book{Title: "Cracking the coding interview", Isbn: "1"},
-		Book{Title: "Pro Git", Isbn: "2"},
-		Book{Title: "Designing Data-Intensive Applications", Isbn: "3"},
-		Book{Title: "Amazon Web Services In Action", Isbn: "4"},
+	books := model.Books{
+		model.Book{Title: "Cracking the Coding Interview", Isbn: "1"},
+		model.Book{Title: "Pro Git", Isbn: "2"},
+		model.Book{Title: "Designing Data-Intensive Applications", Isbn: "3"},
+		model.Book{Title: "Amazon Web Services In Action", Isbn: "4"},
 	}
 
 	fmt.Println("Endpoint: returnAllBooks")
@@ -49,7 +43,7 @@ func handleRequests() {
 }
 func main() {
 
-	fmt.Printf("Hello, Let's go!\n")
+	fmt.Printf("Running Books A Hundreds Server!\n")
 
 	handleRequests()
 }
